@@ -1,0 +1,396 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <title>Application</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-finance-business.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link href="{% static 'register1.css' %}" rel="stylesheet">
+</head>
+<body style="background-color:pink;">
+
+<div class="sub-header" style="height:70px">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-xs-12">
+            <ul class="left-info">
+              <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
+              <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="right-icons">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+<header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="#"><h2 style="color:black;">Bank WebSite</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'bankapp:userhome' %}" style="color:black;">Home
+<!--                  <span class="sr-only">(current)</span>-->
+                </a>
+              </li>
+                {% if user.is_authenticated %}
+                <li>Welcome {{user.username}}</li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'bankapp:logout' %}" style="color:black;">Logout</a>
+                </li>
+                {% endif %}
+
+
+
+<!--              <li class="dropdown">-->
+<!--                <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--            Branches-->
+<!--                </a>-->
+<!--                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+<!--                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kottayam">Kottayam</a>-->
+<!--                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Idukki_district">Idukki</a>-->
+<!--                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Thiruvananthapuram">Thiruvananthapuram</a>-->
+<!--                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kollam">Kollam</a>-->
+<!--                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Palakkad">Palakkad</a>-->
+<!--                </div>-->
+<!--              </li>-->
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+<br><br><br><br><br>
+
+<h1><b>Application Form</b></h1>
+
+<form method="post" id="ApplicationForm"  data-branch-url="{% url 'bankapp:ajax_load_branch' %}">
+    {% csrf_token %}
+<!--    {{form.as_p}}-->
+    <div class="container">
+
+
+
+    <hr>
+
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" name="name" required><br>
+
+        <label><b>Date Of Birth</b></label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="date"  name="dob" required><br>
+
+        <label><b>Age</b></label>
+        <input type="text" placeholder="Enter Age"  name="age" required><br>
+
+        <label for="gender"><b>Gender</b></label>&nbsp;&nbsp;&nbsp;
+        <select name="gender" id="gender">
+                <option value="select">Select</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+        </select><br><br>
+<!--        Male<input type="radio"  name="gender">&nbsp;&nbsp;&nbsp;-->
+<!--        Female<input type="radio"  name="gender"><br><br>-->
+
+        <label for="phone"><b>Phone Number</b></label><br>
+        <input type="text" placeholder="Enter Number" id="phone" name="phone">
+
+        <label for="email"><b>Email Id</b></label><br>
+        <input type="text" placeholder="Enter Email"  name="email">
+
+
+
+<!--        <b>Email Id</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--        <input type="email" placeholder="Enter Email"  name="email" required><br><br>-->
+
+        <label for="address"><b>Address</b></label><br>
+        <input type="text" placeholder="Enter Address" id="address" name="address" required><br>
+
+
+
+<!--        <select name="district" id="district">-->
+<!--            <option value="0">&#45;&#45;Select&#45;&#45;</option>-->
+<!--            {% for item in District  %}-->
+<!--            <option value="{{ item.id }}">{{ item.district_name }}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+        <label for="district"><b>District</b></label>&nbsp;&nbsp;&nbsp;
+
+              <select name="district" id="district" class="form-control">
+                <option value="select">Select</option>
+                  {% for i in districts %}
+                  <option value="{{i.id}}">{{i.name}}</option>
+                  {% endfor %}
+<!--                <option value="kottayam">Kottayam</option>-->
+<!--                <option value="idukki">Idukki</option>-->
+<!--                <option value="thiruvananthapuram">Thiruvananthapuram</option>-->
+<!--                <option value="kollam">Kollam</option>-->
+<!--                <option value="palakad">Palakad</option>-->
+<!--                <option value="kozhikode">Kozhikode</option>-->
+<!--                <option value="alapuzha">Alapuzha</option>-->
+<!--                <option value="ernakulam">Ernakulam</option>-->
+<!--                <option value="kannur">Kannur</option>-->
+<!--                <option value="wayanad">Wayanad</option>-->
+<!--                <option value="kasargod">Kasargod</option>-->
+<!--                <option value="malapuram">Malapuram</option>-->
+<!--                <option value="pathanamthitta">Pathanamthitta</option>-->
+<!--                <option value="kollam">Kollam</option>-->
+            </select><br><br>
+
+
+<!--        <select name="branch" id="branch" class="form-control">-->
+<!--            <option value="0">&#45;&#45;Select&#45;&#45;</option>-->
+<!--            {% for item in Branch  %}-->
+<!--            <option value="{{ item.id }}">{{ item.branch_name }}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+
+        <div class="dropdown"><br>
+        <label for="branch"><b>Branch</b></label>&nbsp;&nbsp;&nbsp;
+
+            <select name="branch" id="branch" class="form-control">
+                <option value="select">Select</option>
+<!--                <option value="erattupetta">Erattupetta</option>-->
+<!--                <option value="edapally">Edapally</option>-->
+<!--                <option value="pala">Pala</option>-->
+<!--                <option value="kakkanad">Kakkanad</option>-->
+<!--                <option value="thiruvalla">Thiruvalla</option>-->
+
+            </select><br><br>
+        </div>
+
+<!--        <div class="dropdown">-->
+<!--            <b>District</b>&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--            <select name="district" id="district">-->
+<!--                <option value="select">Select</option>-->
+<!--                <option value="kottayam">Kottayam</option>-->
+<!--                <option value="idukki">Idukki</option>-->
+<!--                <option value="thiruvananthapuram">Thiruvananthapuram</option>-->
+<!--                <option value="kollam">Kollam</option>-->
+<!--                <option value="palakad">Palakad</option>-->
+<!--                <option value="kozhikode">Kozhikode</option>-->
+<!--                <option value="alapuzha">Alapuzha</option>-->
+<!--                <option value="ernakulam">Ernakulam</option>-->
+<!--                <option value="kannur">Kannur</option>-->
+<!--                <option value="wayanad">Wayanad</option>-->
+<!--                <option value="kasargod">Kasargod</option>-->
+<!--                <option value="malapuram">Malapuram</option>-->
+<!--                <option value="pathanamthitta">Pathanamthitta</option>-->
+<!--                <option value="kollam">Kollam</option>-->
+<!--            </select>-->
+
+<!--        </div><br>-->
+
+        <div class="dropdown"><br>
+            <b>Account Type   </b>&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="accounttype" id="account">
+                    <option value="select">Select</option>
+                    <option value="savings">Savings</option>
+                    <option value="current">Current</option>
+                    <option value="joint">Joint</option>
+                    <option value="fixed">Fixed</option>
+                </select>
+
+        </div><br>
+
+         <b>Materials</b><br>&nbsp;&nbsp;
+            <div>
+                <input type="checkbox" id="debit card" name="debitcard">
+                    <label for="debit card">Debit Card</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="credit card" name="creditcard">
+                    <label for="credit card">Credit Card</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="cheque book" name="chequebook">
+                    <label for="cheque book">Cheque Book</label>
+            </div>
+
+
+
+            <button type="submit" class="registerbtn">Submit</button>
+
+            <a href="{% url 'bankapp:logout' %}" class="btn btn-danger">Logout</a>
+
+
+    </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $("#district").change(function () {
+      var url = $("#ApplicationForm").attr("data-branch-url");  // get the url of the `load_branch` view
+      var districtId = $(this).val();  // get the selected district ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'district': districtId       // add the country id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_branch` view function
+          $("#branch").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+
+    });
+  </script>
+
+
+
+<!--<script>-->
+
+<!--$(document).ready(function(){-->
+
+<!-- var District = $("#District");-->
+<!-- var Branch = $("#Branch");-->
+<!-- var application = $("#application");-->
+<!-- var $options = application.find('option');-->
+<!-- District.on('change',function(){-->
+<!--    application.html($options.filter('[value="'+ this.value  +'"]'));-->
+<!-- }).trigger('change');-->
+
+
+<!--});-->
+<!--</script>-->
+
+
+{% for msg in messages %}
+ <h2>{{msg}}</h2>
+<a href="{% url 'bankapp:userhome' %}" class="btn btn-danger">Home</a>
+{% endfor %}
+
+
+
+
+<!-- Footer Starts Here -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 footer-item">
+            <h4>Bank Website</h4>
+            <p>We always aim at providing superior, proactive banking service to niche market globally, while providing cost-effective and responsive services</p>
+            <ul class="social-icons">
+              <li><a rel="nofollow" href="https://fb.com/templatemo" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-item">
+            <h4>Useful Links</h4>
+            <ul class="menu-list">
+              <li><a href="#">Intrest Rate</a></li>
+              <li><a href="#">Service Charge</a></li>
+              <li><a href="#">Policies & Guidelines</a></li>
+              <li><a href="#">Doorstep banking</a></li>
+              <li><a href="#">Smart Banking</a></li>
+              <li><a href="#">Safe Banking</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-item">
+            <h4>Additional Pages</h4>
+            <ul class="menu-list">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">How We Work</a></li>
+              <li><a href="#">Quick Support</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-item last-item">
+            <h4>Contact Us</h4>
+            <div class="contact-form">
+              <form id="contact footer-contact" action="" method="post">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail Address" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="filled-button">Send Message</button>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="sub-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+
+            <p>Copyright &copy; 2020 Bank Website.
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'assets/js/owl.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
+
+    <script language = "text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+<option value="">---select branch---</option>
+{% for branchs in branch %}
+<option value="{{ branchs.pk }}">{{ branchs.name }}</option>
+{% endfor %}

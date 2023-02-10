@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+
+    <title>Sucess</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-finance-business.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link href="{% static 'register1.css' %}" rel="stylesheet">
+</head>
+<!--<body style="background-color:green;">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Registration Successful Message Example</title>-->
+
+    <meta name="author" content="Codeconvey" />
+    <!-- Message Box CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--Only for demo purpose - no need to add.-->
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}" />
+
+</head>
+<body style="background-color:pink;">
+
+<div class="sub-header" style="height:70px">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-xs-12">
+            <ul class="left-info">
+              <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
+              <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="right-icons">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+<header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="#"><h2>Bank WebSite</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'bankapp:index' %}">Home
+<!--                  <span class="sr-only">(current)</span>-->
+                </a>
+              </li>
+                {% if user.is_authenticated %}
+                <li>Welcome {{user.username}}</li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="">Logout</a>
+                </li>
+                {% endif %}
+
+
+
+              <li class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Branches
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kottayam">Kottayam</a>
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Idukki_district">Idukki</a>
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Thiruvananthapuram">Thiruvananthapuram</a>
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kollam">Kollam</a>
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Palakkad">Palakkad</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+<br><br><br><br><br>
+
+<!--<div class="ScriptTop">-->
+<!--    <div class="rt-container">-->
+<!--        <div class="col-rt-4" id="float-right">-->
+
+<!--            &lt;!&ndash; Ad Here &ndash;&gt;-->
+
+<!--        </div>-->
+<!--        <div class="col-rt-2">-->
+<!--            <ul>-->
+<!--&lt;!&ndash;                <li><a href="https://codeconvey.com/registration-successful-message-html" title="Back to tutorial page">Back to Tutorial</a></li>&ndash;&gt;-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<header class="ScriptHeader">-->
+<!--    <div class="rt-container">-->
+<!--    	<div class="col-rt-12">-->
+<!--        	<div class="rt-heading">-->
+<!--            	<h1>Registration Successful Message Example</h1>-->
+<!--                <p>A registration successful message box in HTML and CSS. </p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</header>-->
+
+<section>
+    <div class="rt-container">
+          <div class="col-rt-12">
+              <div class="Scriptcontent">
+
+<!-- partial:index.partial.html -->
+<div id='card' class="animated fadeIn">
+  <div id='upper-side'>
+    <?xml version="1.0" encoding="utf-8"?>
+      <!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+      <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+      <svg version="1.1" id="checkmark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve">
+        <path d="M131.583,92.152l-0.026-0.041c-0.713-1.118-2.197-1.447-3.316-0.734l-31.782,20.257l-4.74-12.65
+	c-0.483-1.29-1.882-1.958-3.124-1.493l-0.045,0.017c-1.242,0.465-1.857,1.888-1.374,3.178l5.763,15.382
+	c0.131,0.351,0.334,0.65,0.579,0.898c0.028,0.029,0.06,0.052,0.089,0.08c0.08,0.073,0.159,0.147,0.246,0.209
+	c0.071,0.051,0.147,0.091,0.222,0.133c0.058,0.033,0.115,0.069,0.175,0.097c0.081,0.037,0.165,0.063,0.249,0.091
+	c0.065,0.022,0.128,0.047,0.195,0.063c0.079,0.019,0.159,0.026,0.239,0.037c0.074,0.01,0.147,0.024,0.221,0.027
+	c0.097,0.004,0.194-0.006,0.292-0.014c0.055-0.005,0.109-0.003,0.163-0.012c0.323-0.048,0.641-0.16,0.933-0.346l34.305-21.865
+	C131.967,94.755,132.296,93.271,131.583,92.152z" />
+        <circle fill="none" stroke="#ffffff" stroke-width="5" stroke-miterlimit="10" cx="109.486" cy="104.353" r="32.53" />
+      </svg>
+      <h3 id='status'>
+      Application Submitted
+    </h3>
+  </div>
+  <div id='lower-side'>
+<!--    <p id='message'>-->
+<!--      Application Submitted-->
+<!--    </p>-->
+    <a href="{% url 'bankapp:userhome' %}" id="contBtn">Home</a>
+  </div>
+</div>
+<!-- partial -->
+
+
+    		</div>
+		</div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+    <!-- Analytics -->
+
+</body>
+</html>
